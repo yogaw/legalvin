@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legalvin - Buat Kontrak Anda</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/wizard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">Legalvin</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#how-it-works">Cara Kerja</a></li>
+                    <li><a href="index.html#pricing">Harga</a></li>
+                    <li><a href="#" class="btn btn-outline">Masuk</a></li>
+                    <li><a href="#" class="btn btn-primary">Daftar</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Wizard Section -->
+    <section class="wizard">
+        <div class="container">
+            <div class="wizard-container">
+                <div class="wizard-header">
+                    <h1>Buat Kontrak Anda</h1>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" id="progress"></div>
+                            <div class="step active">1</div>
+                            <div class="step">2</div>
+                            <div class="step">3</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wizard-body">
+                    <!-- Step 1: Pilih Jenis Kontrak -->
+                    <div class="wizard-step" id="step1">
+                        <h2>Pilih Jenis Kontrak</h2>
+                        <p>Silakan pilih jenis kontrak yang Anda butuhkan:</p>
+                        
+                        <div class="contract-options">
+                            <div class="contract-option" data-contract="nda">
+                                <div class="contract-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h3>Non-Disclosure Agreement (NDA)</h3>
+                                <p>Kontrak kerahasiaan untuk melindungi informasi sensitif</p>
+                            </div>
+                            
+                            <div class="contract-option" data-contract="mou">
+                                <div class="contract-icon">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <h3>Memorandum of Understanding (MoU)</h3>
+                                <p>Nota kesepahaman antara dua pihak atau lebih</p>
+                            </div>
+                            
+                            <div class="contract-option" data-contract="partnership">
+                                <div class="contract-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Perjanjian Kerja Sama</h3>
+                                <p>Kontrak formal untuk kerjasama bisnis</p>
+                            </div>
+                            
+                            <div class="contract-option" data-contract="freelance">
+                                <div class="contract-icon">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <h3>Kontrak Freelance</h3>
+                                <p>Perjanjian untuk jasa freelance atau pekerja lepas</p>
+                            </div>
+                            
+                            <div class="contract-option" data-contract="other">
+                                <div class="contract-icon">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <h3>Lainnya</h3>
+                                <p>Jenis kontrak khusus sesuai kebutuhan Anda</p>
+                            </div>
+                        </div>
+                        
+                        <div class="wizard-buttons">
+                            <button class="btn btn-primary next-btn" id="step1Next" disabled>Lanjutkan</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Pertanyaan Interaktif -->
+                    <div class="wizard-step" id="step2">
+                        <h2>Pertanyaan Interaktif</h2>
+                        <p>Jawab beberapa pertanyaan untuk menyesuaikan kontrak Anda:</p>
+                        
+                        <div class="questions">
+                            <div class="question" id="question1">
+                                <h3>Apakah Anda pihak pertama dalam kontrak ini?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="party" value="first">
+                                        <span class="radio-custom"></span>
+                                        <span>Ya, saya pihak pertama</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="party" value="second">
+                                        <span class="radio-custom"></span>
+                                        <span>Tidak, saya pihak kedua</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="question" id="question2">
+                                <h3>Apakah perlu mencantumkan pasal penalti?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="penalty" value="yes">
+                                        <span class="radio-custom"></span>
+                                        <span>Ya, sertakan pasal penalti</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="penalty" value="no">
+                                        <span class="radio-custom"></span>
+                                        <span>Tidak perlu pasal penalti</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="question" id="question3">
+                                <h3>Berapa lama durasi kontrak?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="duration" value="3months">
+                                        <span class="radio-custom"></span>
+                                        <span>3 bulan</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="duration" value="6months">
+                                        <span class="radio-custom"></span>
+                                        <span>6 bulan</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="duration" value="1year">
+                                        <span class="radio-custom"></span>
+                                        <span>1 tahun</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="duration" value="custom">
+                                        <span class="radio-custom"></span>
+                                        <span>Kustom</span>
+                                    </label>
+                                </div>
+                                <div class="custom-duration" style="display: none;">
+                                    <input type="text" placeholder="Masukkan durasi kustom">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wizard-buttons">
+                            <button class="btn btn-outline prev-btn">Kembali</button>
+                            <button class="btn btn-primary next-btn" id="step2Next" disabled>Lanjutkan</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Informasi Pribadi -->
+                    <div class="wizard-step" id="step3">
+                        <h2>Informasi Pribadi</h2>
+                        <p>Lengkapi informasi pribadi Anda:</p>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Nama Lengkap</label>
+                            <input type="text" id="fullName" placeholder="Masukkan nama lengkap Anda" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Masukkan alamat email Anda" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" placeholder="Masukkan nomor telepon Anda" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="business">Nama Bisnis/Perusahaan</label>
+                            <input type="text" id="business" placeholder="Masukkan nama bisnis atau perusahaan Anda">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="specialNeeds">Kebutuhan Khusus (opsional)</label>
+                            <textarea id="specialNeeds" placeholder="Jelaskan kebutuhan khusus untuk kontrak Anda"></textarea>
+                        </div>
+                        
+                        <div class="wizard-buttons">
+                            <button class="btn btn-outline prev-btn">Kembali</button>
+                            <button class="btn btn-primary" id="submitForm">Kirim</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Success Message -->
+                    <div class="wizard-step" id="success">
+                        <div class="success-message">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h2>Terima Kasih!</h2>
+                            <p>Permintaan kontrak Anda telah kami terima. Tim kami akan segera memproses dan menghubungi Anda dalam 1x24 jam.</p>
+                            <a href="index.html" class="btn btn-primary">Kembali ke Beranda</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Legalvin</h3>
+                    <p>Solusi kontrak bisnis berbasis AI untuk UMKM, Startup, dan Freelancer</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Layanan</h4>
+                        <ul>
+                            <li><a href="#">Jenis Kontrak</a></li>
+                            <li><a href="#">Cara Kerja</a></li>
+                            <li><a href="#">Harga</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Perusahaan</h4>
+                        <ul>
+                            <li><a href="#">Tentang Kami</a></li>
+                            <li><a href="#">Tim Lawyer</a></li>
+                            <li><a href="#">Karir</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Kontak</h4>
+                        <ul>
+                            <li><a href="mailto:info@legalvin.id">info@legalvin.id</a></li>
+                            <li><a href="tel:+6281234567890">+62 812-3456-7890</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Legalvin. Hak Cipta Dilindungi.</p>
+                <div class="legal-links">
+                    <a href="#">Syarat & Ketentuan</a>
+                    <a href="#">Kebijakan Privasi</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="disclaimer">
+                <p>Disclaimer: Legalvin menyediakan layanan pembuatan kontrak yang dibantu AI dan diverifikasi oleh lawyer profesional. Namun, kami menyarankan untuk berkonsultasi dengan lawyer pribadi Anda untuk kebutuhan hukum yang kompleks.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/wizard.js"></script>
+</body>
+</html>
